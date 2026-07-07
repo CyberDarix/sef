@@ -1,0 +1,143 @@
+{
+  "version": "1.0.0",
+  "name": "CrustGame",
+  "description": "Extreme Gaming Performance Optimizer for Windows",
+  "author": "CrustGame Team",
+  "license": "MIT",
+  "repository": "https://github.com/CrustGame/CrustGame",
+
+  "project": {
+    "languages": {
+      "cpp": {
+        "percentage": 50,
+        "role": "Core system service",
+        "directory": "src/CrustCore/cpp",
+        "version": "C++17"
+      },
+      "csharp": {
+        "percentage": 25,
+        "role": "UI Interface (WPF)",
+        "directory": "src/CrustUI/csharp",
+        "targetFramework": ".NET 6"
+      },
+      "rust": {
+        "percentage": 15,
+        "role": "Watchdog & safety",
+        "directory": "src/CrustWatchdog/rust",
+        "cargoVersion": "1.70+"
+      },
+      "powershell": {
+        "percentage": 7,
+        "role": "Automation scripts",
+        "directory": "src/CrustScripts/powershell",
+        "version": "5.1+"
+      },
+      "assembly": {
+        "percentage": 2,
+        "role": "Hot path optimization",
+        "directory": "src/CrustOptimizer/assembly",
+        "arch": "x64"
+      },
+      "fortran": {
+        "percentage": 1,
+        "role": "Predictive engine",
+        "directory": "src/CrustPredictor/fortran",
+        "compiler": "Intel Fortran / Gfortran"
+      }
+    },
+
+    "features": {
+      "cpu_management": {
+        "description": "Isolate game process on Performance cores",
+        "implementation": "C++ + Assembly",
+        "priority": "high"
+      },
+      "memory_optimization": {
+        "description": "Predictive standby list cleanup",
+        "implementation": "C++ + Fortran",
+        "priority": "high"
+      },
+      "input_lag_reduction": {
+        "description": "IRQ prioritization for input devices",
+        "implementation": "C++ + Assembly",
+        "priority": "high"
+      },
+      "network_optimization": {
+        "description": "Network stack optimization (user-mode)",
+        "implementation": "C++",
+        "priority": "medium"
+      },
+      "realtime_monitoring": {
+        "description": "DPC latency analysis",
+        "implementation": "C++ + Assembly",
+        "priority": "high"
+      },
+      "gpu_control": {
+        "description": "GPU frequency locking",
+        "implementation": "C++",
+        "priority": "medium"
+      }
+    },
+
+    "components": {
+      "CrustCore": {
+        "type": "Service",
+        "language": "C++",
+        "platform": "Windows x64",
+        "modules": [
+          "ServiceManager",
+          "OptimizationEngine",
+          "DriverInterface",
+          "ConfigManager"
+        ]
+      },
+      "CrustUI": {
+        "type": "GUI",
+        "language": "C#/WPF",
+        "platform": "Windows x64",
+        "cpu_idle": "0%",
+        "features": [
+          "Tray icon",
+          "Real-time metrics",
+          "One-click gaming mode"
+        ]
+      },
+      "CrustWatchdog": {
+        "type": "Monitor",
+        "language": "Rust",
+        "platform": "Windows x64",
+        "monitoring_interval": "< 500ms",
+        "features": [
+          "System health check",
+          "Auto-recovery",
+          "Crash prevention"
+        ]
+      }
+    },
+
+    "security": {
+      "philosophy": "No-Cheat",
+      "memory_injection": false,
+      "anticheat_compliant": true,
+      "driver_signing": "optional (test mode)",
+      "memory_safety": "Rust Watchdog",
+      "auto_recovery": "enabled"
+    },
+
+    "requirements": {
+      "os": "Windows 10 / 11 / 12",
+      "arch": "x64 only",
+      "admin_rights": true,
+      "dotnet": "6.0+",
+      "rust": "1.70+",
+      "visualstudio": "2022 or later"
+    },
+
+    "build": {
+      "solution": "CrustGame.sln",
+      "configurations": ["Debug", "Release"],
+      "platforms": ["x64"],
+      "postBuildEvent": "cargo build --manifest-path=src/CrustWatchdog/rust/Cargo.toml"
+    }
+  }
+}

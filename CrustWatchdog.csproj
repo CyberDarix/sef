@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<OutputType>WinExe</OutputType>
+	<TargetFramework>net6.0-windows</TargetFramework>
+	<RootNamespace>CrustWatchdog</RootNamespace>
+	<AssemblyName>CrustWatchdog</AssemblyName>
+	<Version>1.0.0-alpha</Version>
+	<Authors>CrustGame Team</Authors>
+	<Description>CrustGame Watchdog - System Monitoring Service</Description>
+	<UseWindowsForms>false</UseWindowsForms>
+	<StartupObject>CrustWatchdog.Program</StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+	<DebugSymbols>false</DebugSymbols>
+	<DebugType>none</DebugType>
+	<Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="System.ServiceProcess.ServiceController" Version="7.0.0" />
+	<PackageReference Include="System.Management" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>

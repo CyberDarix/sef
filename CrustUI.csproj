@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+	<OutputType>WinExe</OutputType>
+	<TargetFramework>net6.0-windows</TargetFramework>
+	<UseWPF>true</UseWPF>
+	<RootNamespace>CrustUI</RootNamespace>
+	<AssemblyName>CrustUI</AssemblyName>
+	<Version>1.0.0-alpha</Version>
+	<Authors>CrustGame Team</Authors>
+	<Description>CrustGame UI - Gaming Performance Optimizer Interface</Description>
+	<StartupObject>CrustUI.App</StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+	<DebugSymbols>false</DebugSymbols>
+	<DebugType>none</DebugType>
+	<Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="System.Management" Version="7.0.0" />
+	<PackageReference Include="System.ServiceProcess.ServiceController" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Resource Include="icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Compile Update="MainWindow.xaml.cs">
+	  <DependentUpon>MainWindow.xaml</DependentUpon>
+	</Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+	<Page Update="MainWindow.xaml">
+	  <Generator>MSBuild:Compile</Generator>
+	  <SubType>Designer</SubType>
+	</Page>
+  </ItemGroup>
+
+</Project>
